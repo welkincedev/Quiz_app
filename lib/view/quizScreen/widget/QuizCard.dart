@@ -1,126 +1,139 @@
 import 'package:flutter/material.dart';
-import 'package:quizmaster/theme/colourStyle.dart';
-import 'package:quizmaster/theme/textStyle.dart';
-import '../../../model/qModel.dart';
-import '../quizScreen.dart';
 
+import '../../../model/qModel.dart';
+import '../../../theme/textStyle.dart';
 
 Widget buildQuizCard(BuildContext context, Quiz quiz) {
-  Color difficultycolour;
+  Color difficultyColor;
+
   switch (quiz.difficulty) {
     case "Easy":
-      difficultycolour = Colors.green;
+      difficultyColor = Colors.green;
       break;
+
     case "Medium":
-      difficultycolour = Colors.yellow;
+      difficultyColor = Colors.orange;
       break;
+
     case "Hard":
-      difficultycolour = Colors.red;
+      difficultyColor = Colors.red;
       break;
+
     default:
-      difficultycolour = AppColors.primaryBlue;
+      difficultyColor = Colors.blue;
   }
-  return Card(
-    margin: EdgeInsets.only(bottom: 10),
-    elevation: 4,
-    child: Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.primaryBlue.withOpacity(0.8),
-            AppColors.primaryBlue,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+
+  return Container(
+    margin: const EdgeInsets.only(bottom: 16),
+    padding: const EdgeInsets.all(16),
+
+    decoration: BoxDecoration(
+      gradient: const LinearGradient(
+        colors: [
+          Color(0xFF0D47A1),
+          Color(0xFF1565C0),
+          Color(0xFF42A5F5),
+          Color(0xFF53BCFF),],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+
+      borderRadius: BorderRadius.circular(18),
+
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.15),
+          blurRadius: 8,
+          offset: const Offset(0, 4),
         ),
-      ),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => QuizScreen(quiz: quiz)),
-          );
-        },
-        borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(quiz.title, style: AppTextStyle.QCardHeadText),
-                        SizedBox(height: 6),
-                        Text(
-                          quiz.descrpition,
-                          style: AppTextStyle.QCardText,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                    child: Icon(Icons.quiz,),
-                  ),SizedBox(width: 12,),
-                  Row(
-                    children: [
-                      _buildInfoChip(
-                        Icons.help_outline,
-                        '${quiz.totalQuestion} Questions',
-                      ),
-                      const SizedBox(width: 12),
-                      _buildInfoChip(
-                        Icons.timer_outlined,
-                        '${quiz.duration} mins',
-                      ),
-                      const SizedBox(width: 12),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 6,
-                        ),
-                        decoration: BoxDecoration(
-                          color: difficultycolour,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Text(
-                          quiz.difficulty,
-                          style: AppTextStyle.difficulty),
-                      ),
-                    ],
-                  ),
-                ],
-          ),
-        ]),
-      ),
+      ],
     ),
-  )
+
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+
+                children: [
+                  Text(quiz.title, style: AppTextStyle.QCardHeadText),
+
+                  const SizedBox(height: 8),
+
+                  Text(quiz.descrpition, style: AppTextStyle.QCardText),
+                ],
+              ),
+            ),
+
+            const SizedBox(width: 12),
+
+            Container(
+              padding: const EdgeInsets.all(10),
+
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+
+              child: const Icon(Icons.quiz_outlined, color: Colors.black87),
+            ),
+          ],
+        ),
+
+        const SizedBox(height: 18),
+
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+
+          children: [
+            buildChip(Icons.help_outline, "${quiz.totalQuestion} Qs"),
+
+            buildChip(Icons.timer_outlined, "${quiz.duration} mins"),
+
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+
+              decoration: BoxDecoration(
+                color: difficultyColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+
+              child: Text(
+                quiz.difficulty,
+
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }
 
-
-Widget _buildInfoChip(IconData icon, String text) {
+Widget buildChip(IconData icon, String text) {
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
     decoration: BoxDecoration(
-      color: Colors.grey[100],
-      borderRadius: BorderRadius.circular(6),
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
     ),
     child: Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 14, color: Colors.black),
-        const SizedBox(width: 4),
-        Text(text, style: TextStyle(fontSize: 11, color: Colors.black,fontWeight: FontWeight.bold)),
+        Icon(icon, size: 18),
+        const SizedBox(width: 6),
+        Text(text),
       ],
     ),
   );
