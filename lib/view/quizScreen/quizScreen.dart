@@ -61,12 +61,14 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   void completeQuiz() {
-    for (int i = 0; i < widget.quiz.questions.length; i++)
-      if (selectedAnswers[i] == widget.quiz.questions[i].correctAnswer);
-    {
-      score++;
+    int calculatedScore = 0;
+    for (int i = 0; i < widget.quiz.questions.length; i++) {
+      if (selectedAnswers[i] == widget.quiz.questions[i].correctAnswer) {
+        calculatedScore++;
+      }
     }
     setState(() {
+      score = calculatedScore;
       quizCompleted = true;
     });
   }
@@ -162,7 +164,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text("Pervious",),
+                        child: Text("Previous",),
                       ),
                     )
                 ),

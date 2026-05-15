@@ -11,7 +11,7 @@ class AppColors {
 
 final ThemeData lightTheme = ThemeData(
   useMaterial3: true,
-  fontFamily: "Mont-ExtraLightDEMO",
+  fontFamily: "Borscha",
   colorScheme: const ColorScheme.light(
     primary: AppColors.primaryPurple,
     onPrimary: Colors.white,

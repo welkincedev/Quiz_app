@@ -86,7 +86,7 @@ Widget buildQuizCard(BuildContext context, Quiz quiz) {
                           vertical: 6,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: difficultycolour,
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(

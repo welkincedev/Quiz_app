@@ -2,6 +2,9 @@ import 'package:quizmaster/model/qModel.dart';
 import 'dartQuestions.dart';
 import 'flutterQuestions.dart';
 import 'generlQuestions.dart';
+import 'indiaQuestions.dart';
+import 'nationsQuestions.dart';
+import 'natureQuestions.dart';
 
 List<Quiz> getQuizes() {
   return [
@@ -28,6 +31,39 @@ List<Quiz> getQuizes() {
         totalQuestion: 30,
         duration: 10,
         difficulty: "Medium",
-        questions: getGeneralQuestions())
+        questions: getGeneralQuestions()),
+    Quiz(
+      id: 4,
+      title: "Nations Quiz",
+      descrpition: "Countries Around the World",
+      category: "Nations",
+      totalQuestion: 5,
+      duration: 5,
+      difficulty: "Medium",
+      questions: getNationQuestions(),
+    ),
+
+    Quiz(
+      id: 5,
+      title: "India Quiz",
+      descrpition: "About India",
+      category: "India",
+      totalQuestion: 5,
+      duration: 5,
+      difficulty: "Easy",
+      questions: getIndiaQuestions(),
+    ),
+
+    Quiz(
+      id: 6,
+      title: "Nature Quiz",
+      descrpition: "Earth & Environment",
+      category: "Nature",
+      totalQuestion: 5,
+      duration: 5,
+      difficulty: "Easy",
+      questions: getNatureQuestions(),
+    ),
+
   ];
 }

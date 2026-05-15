@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:quizmaster/model/qModel.dart';
 import 'package:lottie/lottie.dart';
-import 'package:quizmaster/theme/textStyle.dart';
 import 'package:quizmaster/view/ResultsScreen/resultWidget.dart';
 
-class ResultsScreen extends StatelessWidget {
-  late Quiz quiz;
-  late int score;
-  late int totalQuestions;
+import '../../model/qModel.dart';
+import '../../theme/textStyle.dart';
 
-  ResultsScreen({
+class ResultsScreen extends StatelessWidget {
+  final Quiz quiz;
+  final int score;
+  final int totalQuestions;
+
+  const ResultsScreen({
+    super.key,
     required this.quiz,
     required this.score,
     required this.totalQuestions,
@@ -24,16 +26,17 @@ class ResultsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
         foregroundColor: Colors.white,
-        title: Text("Quiz Results"),
+        title: const Text("Quiz Results"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+
               Lottie.asset(
                 isPassed
                     ? 'assets/Lottie/Trophy.json'
@@ -41,21 +44,26 @@ class ResultsScreen extends StatelessWidget {
                 width: 200,
                 height: 200,
               ),
+
               Text(
                 isPassed ? "Congrats" : "Better Luck Next Time",
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.deepPurple,
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
               ),
-              SizedBox(height: 20),
+
+              const SizedBox(height: 20),
+
               Text(
                 isPassed
-                    ? "You have Won the Quiz"
-                    : "You Need to score 60% Marks",
+                    ? "You have won the quiz"
+                    : "You need to score 60% marks",
               ),
-              SizedBox(height: 20),
+
+              const SizedBox(height: 20),
+
               Card(
                 elevation: 5,
                 shape: RoundedRectangleBorder(
@@ -63,28 +71,33 @@ class ResultsScreen extends StatelessWidget {
                 ),
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
                     color: Colors.blue.shade700,
                     borderRadius: BorderRadius.circular(16),
                   ),
-
                   child: Column(
                     children: [
                       Text("Your Score", style: AppTextStyle.progressbar),
                       Text(
                         "$score / $totalQuestions",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
-                      Text("$percentage %", style: AppTextStyle.progressbar),
+                      Text("$percentage%", style: AppTextStyle.progressbar),
                     ],
                   ),
                 ),
               ),
+
+              const SizedBox(height: 20),
+
               Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
@@ -92,27 +105,20 @@ class ResultsScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Performance Summary"),
-                    buildSummary(
-                      Icon(Icons.quiz),
-                      "Quiz Title",
-                      "Dart Programming",
+                    const Text(
+                      "Performance Summary",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    buildSummary(
-                      Icons.category_outlined,
-                      "Quiz Title",
-                      "Dart Programming",
-                    ),
-                    buildSummary(
-                      Icons.trending_up,
-                      "Quiz Title",
-                      "Dart Programming",
-                    ),
-                    buildSummary(
-                      Icons.confirmation_number,
-                      "Correct Answers",
-                      "$score",
-                    ),
+
+                    const SizedBox(height: 16),
+
+                    buildSummary(Icons.quiz, "Quiz Title", quiz.title),
+                    buildSummary(Icons.category_outlined, "Category", quiz.category),
+                    buildSummary(Icons.trending_up, "Difficulty", quiz.difficulty),
+                    buildSummary(Icons.confirmation_number, "Correct Answers", "$score"),
                   ],
                 ),
               ),
