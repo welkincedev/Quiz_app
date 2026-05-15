@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 import 'package:quizmaster/screens/quiz_home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,7 +32,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.white, Colors.blue, Color(0xFF003781)],
+            colors: [
+              Colors.white,
+              AppColors.secondaryBlue,
+              AppColors.primaryBlue,
+            ],
 
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

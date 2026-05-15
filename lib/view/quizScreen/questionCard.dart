@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 import 'package:quizmaster/theme/textStyle.dart';
 import '../../model/qModel.dart';
 
@@ -24,7 +25,7 @@ class QuestionCard extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.blue.shade200,
+                color: AppColors.primaryBlue.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
@@ -58,15 +59,15 @@ class QuestionCard extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 12),
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.blue.shade900 : Colors.white,
+          color: isSelected ? AppColors.primaryBlue : Colors.white,
           border: Border.all(
-            color: isSelected ? Colors.blue.shade900 : Colors.white,
+            color: isSelected ? AppColors.primaryBlue : Colors.grey.shade300,
           ),
           borderRadius: BorderRadius.circular(12),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: Colors.blue,
+                    color: AppColors.primaryBlue.withOpacity(0.3),
                     blurRadius: 8,
                     offset: Offset(0, 4),
                   ),
@@ -90,7 +91,7 @@ class QuestionCard extends StatelessWidget {
                       Icons.check,
                       fontWeight: FontWeight.bold,
                       size: 16,
-                      color: Colors.blue.shade900,
+                      color: AppColors.primaryBlue,
                     )
                   : null,
             ),
@@ -98,10 +99,8 @@ class QuestionCard extends StatelessWidget {
             Expanded(
               child: Text(
                 options,
-                style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+                style: AppTextStyle.optionText.copyWith(
+                  color: isSelected ? Colors.white : Colors.black87,
                 ),
               ),
             ),

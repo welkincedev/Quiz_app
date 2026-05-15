@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 
 Widget buildSummary(
     IconData icons,
@@ -13,7 +14,7 @@ Widget buildSummary(
 
       Icon(
         icons,
-        color: Colors.blueAccent,
+        color: AppColors.secondaryBlue,
         size: 20,
       ),
 

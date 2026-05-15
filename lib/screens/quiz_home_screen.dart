@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 
 import 'package:quizmaster/data/dataQuiz.dart';
 import 'package:quizmaster/theme/textStyle.dart';
@@ -22,8 +23,11 @@ class QuizHomeScreen extends StatelessWidget {
               background: Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.white, Colors.blue, Color(0xFF003781)],
-
+                    colors: [
+                      Colors.white,
+                      AppColors.secondaryBlue,
+                      AppColors.primaryBlue,
+                    ],
                     begin: Alignment.topRight,
                     end: Alignment.bottomLeft,
                   ),

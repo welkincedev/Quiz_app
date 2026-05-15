@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 import 'package:quizmaster/view/ResultsScreen/resultWidget.dart';
 
 import '../../model/qModel.dart';
@@ -24,7 +25,7 @@ class ResultsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[800],
+        backgroundColor: AppColors.primaryBlue,
         foregroundColor: Colors.white,
         title: const Text("Quiz Results"),
         centerTitle: true,
@@ -46,11 +47,11 @@ class ResultsScreen extends StatelessWidget {
               ),
 
               Text(
-                isPassed ? "Congrats" : "Better Luck Next Time",
-                style: const TextStyle(
-                  color: Colors.deepPurple,
+                isPassed ? "Congratulations!" : "Keep Practicing!",
+                style: TextStyle(
+                  color: isPassed ? AppColors.rightGreen : AppColors.wrongRed,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 24,
                 ),
               ),
 
@@ -73,21 +74,17 @@ class ResultsScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: Colors.blue.shade700,
+                    color: AppColors.primaryBlue,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Column(
                     children: [
-                      Text("Your Score", style: AppTextStyle.progressbar),
+                      Text("Your Score", style: AppTextStyle.labelSmall),
                       Text(
                         "$score / $totalQuestions",
-                        style: const TextStyle(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                        style: AppTextStyle.scoreDisplay,
                       ),
-                      Text("$percentage%", style: AppTextStyle.progressbar),
+                      Text("$percentage%", style: AppTextStyle.labelSmall),
                     ],
                   ),
                 ),

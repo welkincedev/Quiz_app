@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primaryPurple = Color(0xFF3B297E);
-  static const secondaryPurple = Color(0xFF5A1C97);
-  static const background = Color(0xFFF2F2F2);
+  static const primaryBlue = Color(0xFF003781);
+  static const secondaryBlue = Color(0xFF1976D2);
+  static const background = Color(0xFFF8FAFC);
   static const wrongRed = Color(0xFFB3261E);
   static const rightGreen = Color(0xFF6EC335);
-
+  static const cardBackground = Colors.white;
 }
 
 final ThemeData lightTheme = ThemeData(
   useMaterial3: true,
-  fontFamily: "Borscha",
-  colorScheme: const ColorScheme.light(
-    primary: AppColors.primaryPurple,
-    onPrimary: Colors.white,
-    secondary: AppColors.secondaryPurple,
-    onSecondary: Colors.white,
-    surface: Colors.white,
-    onSurface: Colors.black,
-    error: AppColors.wrongRed,
-  ),
-
+  primaryColor: AppColors.primaryBlue,
   scaffoldBackgroundColor: AppColors.background,
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: AppColors.primaryBlue,
+    primary: AppColors.primaryBlue,
+    secondary: AppColors.secondaryBlue,
+    error: AppColors.wrongRed,
+    surface: AppColors.cardBackground,
+  ),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: AppColors.primaryBlue,
+    foregroundColor: Colors.white,
+    elevation: 0,
+    centerTitle: true,
+  ),
 );

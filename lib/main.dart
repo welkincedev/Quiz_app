@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizmaster/screens/splash_screen.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 
 void main() {
   runApp(const QuizApp());
@@ -11,9 +12,9 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Quiz App',
+      title: 'QuizMaster',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: false, fontFamily: "Mont-ExtraLightDEMO"),
+      theme: lightTheme,
       home: const SplashScreen(),
     );
   }

@@ -4,61 +4,60 @@ import 'colourStyle.dart';
 class AppTextStyle {
   static const TextStyle titleText = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 22,
+    fontSize: 24,
     color: Colors.white,
   );
 
-  static const TextStyle questionText = TextStyle(
+  static const TextStyle titleSubText = TextStyle(
     fontSize: 16,
-    color: AppColors.primaryPurple,
+    color: Colors.white70,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const TextStyle questionText = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: Colors.black87,
+    height: 1.4,
+  );
+
+  static const TextStyle optionText = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
   );
 
   static const TextStyle QCardHeadText = TextStyle(
-    fontSize: 16,
+    fontSize: 18,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
 
   static const TextStyle QCardText = TextStyle(
-    fontSize: 16,
+    fontSize: 14,
     color: Colors.white70,
-    fontWeight: FontWeight.w300
-
+    fontWeight: FontWeight.w400,
   );
 
-  static const TextStyle answerText = TextStyle(
-    fontSize: 16,
-    color: AppColors.rightGreen,
-    fontWeight: FontWeight.w600,
-  );
-
-
-  static const TextStyle progressbar = TextStyle(
-    fontSize: 26,
+  static const TextStyle labelSmall = TextStyle(
+    fontSize: 14,
     color: Colors.white,
+    fontWeight: FontWeight.w500,
   );
-  static const TextStyle titleSubText = TextStyle(
-    fontSize: 16,
-    color: Colors.white,
-  );
-  static const TextStyle ContainerQuestionText = TextStyle(
-    fontSize: 18,
-    color: Colors.black,
+
+  static const TextStyle scoreDisplay = TextStyle(
+    fontSize: 48,
     fontWeight: FontWeight.bold,
-    height: 1.5,
-  );
-
-  static final TextStyle belowQuestionText = TextStyle(
-    fontSize: 12,
-    color: Colors.grey[600],
-    fontWeight: FontWeight.w600,
-    letterSpacing: 0.5
+    color: Colors.white,
   );
 
   static final TextStyle difficulty = TextStyle(
-      fontSize: 12,
-      color: Colors.white,
-      fontWeight: FontWeight.w600,
+    fontSize: 12,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
   );
 
+  // Legacy mappings for compatibility during refactoring
+  static TextStyle get progressbar => labelSmall.copyWith(fontSize: 14);
+  static TextStyle get ContainerQuestionText => questionText;
+  static TextStyle get belowQuestionText => labelSmall.copyWith(color: Colors.grey[600], fontSize: 12);
 }

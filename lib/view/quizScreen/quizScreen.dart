@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 import 'package:quizmaster/model/qModel.dart';
 import 'package:quizmaster/theme/textStyle.dart';
 import 'package:quizmaster/view/quizScreen/questionCard.dart';
@@ -87,14 +88,14 @@ class _QuizScreenState extends State<QuizScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blue[800],
+        backgroundColor: AppColors.primaryBlue,
         foregroundColor: Colors.white,
         title: Text(widget.quiz.title),
       ),
       body: Column(
         children: [
           Container(
-            color: Colors.blue[800],
+            color: AppColors.primaryBlue,
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,7 +157,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: ElevatedButton(
                       onPressed:_currentIndex>0 ? previousQuestion : null,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue[800],
+                        backgroundColor: AppColors.primaryBlue,
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)
@@ -173,7 +174,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: ElevatedButton(
                       onPressed:selectedAnswers[_currentIndex] !=null ? nextQuestion : null,
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue[800],
+                          backgroundColor: AppColors.primaryBlue,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizmaster/theme/colourStyle.dart';
 import 'package:quizmaster/theme/textStyle.dart';
 import '../../../model/qModel.dart';
 import '../quizScreen.dart';
@@ -17,7 +18,7 @@ Widget buildQuizCard(BuildContext context, Quiz quiz) {
       difficultycolour = Colors.red;
       break;
     default:
-      difficultycolour = Colors.blue;
+      difficultycolour = AppColors.primaryBlue;
   }
   return Card(
     margin: EdgeInsets.only(bottom: 10),
@@ -25,9 +26,12 @@ Widget buildQuizCard(BuildContext context, Quiz quiz) {
     child: Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.blue.shade500,Colors.blueAccent,Colors.blue.shade900],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
+          colors: [
+            AppColors.primaryBlue.withOpacity(0.8),
+            AppColors.primaryBlue,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
       ),
       child: InkWell(
