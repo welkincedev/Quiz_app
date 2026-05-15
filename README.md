@@ -1,17 +1,52 @@
-# quizmaster
+# 📚 QuizMaster App
 
-A new Flutter project.
+QuizMaster is a modern Flutter quiz application designed to test users’ knowledge through interactive quizzes across multiple categories like Flutter, Nations, India, Nature, and General Knowledge.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🎯 Multiple quiz categories
+- ⏱ Timer-based quizzes
+- 📊 Real-time score tracking
+- ✅ Instant answer feedback
+- 🏆 Result screen with performance summary
+- 🎨 Beautiful UI with gradients and animations
+- 🎬 Lottie animations for success/failure
+- 📱 Responsive Flutter design
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 Screens
+
+- Splash Screen
+- Home Screen
+- Quiz Screen
+- Results Screen
+
+---
+
+## 🛠 Built With
+
+- Flutter
+- Dart
+- Material Design
+- Lottie Animations
+
+---
+
+## 📂 Project Structure
+
+```bash
+lib/
+│
+├── data/
+├── model/
+├── theme/
+├── view/
+│   ├── HomeScreen/
+│   ├── QuizScreen/
+│   └── ResultsScreen/
+│
+├── widgets/
+└── main.dart
